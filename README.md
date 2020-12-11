@@ -1,2 +1,2 @@
 # bookstore-project
-Тестовый проект онлайн магазина
+Onine book store. For practice.
