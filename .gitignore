@@ -139,4 +139,7 @@ dmypy.json
 .idea/vcs.xml
 .idea/workspace.xml
 
+# Media files
+media/
+
 
