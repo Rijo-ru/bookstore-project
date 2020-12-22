@@ -5,13 +5,20 @@ import socket
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Environment config
+ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
+# Production config
+if ENVIRONMENT == 'production':
+    SECURE_BROWSER_XSS_FILTER = True
+    X_FRAME_OPTIONS = 'DENY'
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -162,3 +169,5 @@ STRIPE_TEST_SECRET_KEY=os.environ.get('STRIPE_TEST_SECRET_KEY')
 # django-debug-toolbar
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
 INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
+
+
