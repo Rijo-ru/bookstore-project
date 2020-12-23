@@ -19,6 +19,7 @@ if ENVIRONMENT == 'production':
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
