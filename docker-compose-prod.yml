@@ -11,7 +11,7 @@ services:
     environment:
       - SECRET_KEY=yf_ur#ca6o)6kgl%-^#tj%4(ke14doa^@wzkdxn9^v&$$s(9$$jv
       - DEBUG=0
-      - ENVIRONMENT=prodaction
+      - ENVIRONMENT=production
 
     ports:
       - 8000:8000
