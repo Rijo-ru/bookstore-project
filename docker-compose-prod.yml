@@ -3,7 +3,8 @@ version: '3.7'
 services:
   web:
     build: .
-    command: python /code/manage.py runserver 0.0.0.0:8000
+    # command: python /code/manage.py runserver 0.0.0.0:8000
+    command: gunicorn server.wsgi -b 0.0.0.0:8000
     volumes:
       - .:/code
     env_file:
@@ -12,15 +13,12 @@ services:
       - SECRET_KEY=yf_ur#ca6o)6kgl%-^#tj%4(ke14doa^@wzkdxn9^v&$$s(9$$jv
       - DEBUG=0
       - ENVIRONMENT=production
-
     ports:
       - 8000:8000
     depends_on:
       - db
   db:
     image: postgres:11
-#    volumes:
-#      - postgres_data:/var/lib/postgresql/data/
     environment:
       - "POSTGRES_HOST_AUTH_METHOD=trust"
 
