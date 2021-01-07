@@ -48,12 +48,14 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'debug_toolbar',
+    'rest_framework',
 
     # Local
     'accounts.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'books.apps.BooksConfig',
     'orders.apps.OrdersConfig',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
